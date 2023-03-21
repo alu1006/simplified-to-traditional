@@ -1,0 +1,15 @@
+# .gitignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.sqlite
+*.pyc
+.env
+*.zip
+*.gz
+*.tar
+*.tgz
+*.bz2
+*.7z

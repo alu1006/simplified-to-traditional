@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/styles.css">
+    <title>簡轉繁應用程式</title>
+</head>
+
+<body>
+    <div class="container mt-5 text-center">
+        <h1 class="mb-4">簡轉繁應用程式</h1>
+        <p>拖曳或選擇一個或多個txt, srt, docx檔案進行批次的簡轉繁，加速文章、剪片工作流程</p>
+        <form action="/upload" method="post" enctype="multipart/form-data" id="upload-form" class="d-flex flex-column align-items-center">
+            <div class="file-container">
+                <input type="file" class="file-input" name="files[]" multiple="multiple" accept=".txt,.docx,.srt,*/*" required>
+                <span>拖曳或點擊選擇檔案</span>
+            </div>
+            <div id="file-names" class="mt-2  w-100 text-center">
+                
+            </div>
+
+        
+            <button type="submit" class="btn btn-primary mt-3">開始轉換</button>
+        </form>
+    </div>
+    
+
+    <script>
+        document.getElementById('upload-form').addEventListener('change', function (event) {
+            const fileList = event.target.files;
+            let fileNames = '';
+            for (const file of fileList) {
+                fileNames += file.name + '\n';
+            }
+            fileNames = fileNames.slice(0, -2); // Remove trailing comma and space
+            document.getElementById('file-names').innerText = fileNames;
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
